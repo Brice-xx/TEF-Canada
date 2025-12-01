@@ -591,11 +591,11 @@ section {
     background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle fill="rgba(33, 150, 243, 0.03)" cx="200" cy="200" r="100"/><circle fill="rgba(255, 152, 0, 0.03)" cx="800" cy="800" r="150"/></svg>');
 }
 
-/* Enhanced Services Grid - 4 cards in one line */
+/* ENHANCED Slim Services Grid - 4 cards in one line */
 .tef-services-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 2rem;
+    gap: 1.5rem;
     margin-bottom: 4rem;
     position: relative;
     z-index: 1;
@@ -603,8 +603,8 @@ section {
 
 .tef-service-card {
     background: var(--white);
-    border-radius: var(--border-radius-lg);
-    padding: 2.5rem 1.5rem;
+    border-radius: var(--border-radius);
+    padding: 2rem 1.5rem;
     text-align: center;
     box-shadow: var(--shadow);
     transition: var(--transition);
@@ -613,7 +613,8 @@ section {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    align-items: center;
+    min-height: 200px;
 }
 
 .tef-service-card::before {
@@ -622,7 +623,7 @@ section {
     top: 0;
     left: 0;
     width: 100%;
-    height: 4px;
+    height: 3px;
     background: var(--gradient-primary);
     transform: scaleX(0);
     transition: var(--transition);
@@ -630,7 +631,7 @@ section {
 }
 
 .tef-service-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-5px);
     box-shadow: var(--shadow-hover);
     border-color: var(--primary);
 }
@@ -640,28 +641,52 @@ section {
 }
 
 .tef-service-card .icon {
-    font-size: 2.5rem;
-    color: var(--primary);
-    margin-bottom: 1.5rem;
-    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background: var(--gradient-primary);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
     transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.2);
 }
 
 .tef-service-card:hover .icon {
     transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 6px 20px rgba(33, 150, 243, 0.3);
 }
 
 .tef-service-card h4 {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
     color: var(--dark);
+    font-weight: 600;
 }
 
 .tef-service-card p {
     color: var(--gray);
-    line-height: 1.6;
-    font-size: 0.95rem;
+    line-height: 1.5;
+    font-size: 0.9rem;
     flex-grow: 1;
+    margin-bottom: 1rem;
+}
+
+.tef-service-card .btn {
+    margin-top: auto;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.85rem;
+    background: var(--primary-light);
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.tef-service-card .btn:hover {
+    background: var(--gradient-primary);
+    color: var(--white);
 }
 
 /* Enhanced Services Navigation */
@@ -1345,10 +1370,11 @@ section {
     font-size: 1.1rem;
 }
 
-/* Enhanced Contact Section */
+/* Enhanced Contact Section - Redesigned without form */
 .contact {
-    background: var(--primary-light);
+    background: var(--gradient-primary);
     position: relative;
+    color: var(--white);
 }
 
 .contact::before {
@@ -1358,7 +1384,7 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><rect fill="rgba(33, 150, 243, 0.05)" x="100" y="100" width="300" height="300" rx="50"/><rect fill="rgba(255, 152, 0, 0.05)" x="600" y="600" width="400" height="400" rx="50"/></svg>');
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><circle fill="rgba(255,255,255,0.05)" cx="250" cy="250" r="150"/><circle fill="rgba(255,255,255,0.05)" cx="750" cy="750" r="200"/></svg>');
 }
 
 .contact-grid {
@@ -1369,55 +1395,28 @@ section {
     z-index: 1;
 }
 
-.contact-form-card, .contact-info-card {
-    background: var(--white);
+.contact-info-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
     border-radius: var(--border-radius-lg);
     padding: 3rem;
-    box-shadow: var(--shadow-lg);
-    border: 1px solid var(--gray-light);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     transition: var(--transition);
 }
 
-.contact-form-card:hover, .contact-info-card:hover {
+.contact-info-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.15);
 }
 
-.contact-form-card h3, .contact-info-card h3 {
-    color: var(--primary-dark);
+.contact-info-card h3 {
+    color: var(--white);
     margin-bottom: 2.5rem;
-    font-size: 1.6rem;
+    font-size: 1.8rem;
     font-weight: 700;
-}
-
-.form-group {
-    margin-bottom: 2rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.75rem;
-    font-weight: 600;
-    color: var(--dark);
-    font-size: 1rem;
-}
-
-.form-group input, .form-group textarea {
-    width: 100%;
-    padding: 1.25rem;
-    border: 2px solid var(--gray-light);
-    border-radius: var(--border-radius);
-    font-family: 'Lato', sans-serif;
-    transition: var(--transition);
-    background: var(--white);
-    font-size: 1rem;
-}
-
-.form-group input:focus, .form-group textarea:focus {
-    outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 4px rgba(33, 150, 243, 0.1);
-    transform: translateY(-2px);
+    text-align: center;
 }
 
 .contact-details {
@@ -1430,33 +1429,66 @@ section {
     gap: 1.25rem;
     margin-bottom: 1.75rem;
     padding: 1.25rem;
-    background: var(--primary-light);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: var(--border-radius);
     transition: var(--transition);
     border: 1px solid transparent;
 }
 
 .contact-detail-item:hover {
-    background: var(--primary);
-    color: var(--white);
+    background: rgba(255, 255, 255, 0.2);
     transform: translateX(5px);
-    border-color: var(--primary);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .contact-detail-item i {
-    color: var(--primary);
-    width: 20px;
+    width: 24px;
     font-size: 1.2rem;
     transition: var(--transition);
 }
 
-.contact-detail-item:hover i {
+.contact-channels {
+    margin-bottom: 3rem;
+}
+
+.contact-channel-item {
+    text-align: center;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: var(--border-radius);
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+    border: 1px solid transparent;
+}
+
+.contact-channel-item:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+.contact-channel-item i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--secondary);
+}
+
+.contact-channel-item h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
     color: var(--white);
+}
+
+.contact-channel-item p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    line-height: 1.5;
 }
 
 .social-links {
     display: flex;
-    gap: 1rem;
+    justify-content: center;
+    gap: 1.5rem;
     margin-bottom: 3rem;
 }
 
@@ -1464,55 +1496,59 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 50px;
-    height: 50px;
-    background: var(--primary);
+    width: 60px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.1);
     color: var(--white);
     border-radius: 50%;
     text-decoration: none;
     transition: var(--transition);
-    box-shadow: 0 6px 20px rgba(33, 150, 243, 0.3);
-    border: 2px solid transparent;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    font-size: 1.3rem;
 }
 
 .social-link:hover {
-    background: var(--primary-dark);
-    transform: translateY(-3px) scale(1.1);
-    box-shadow: 0 10px 25px rgba(33, 150, 243, 0.4);
+    background: var(--white);
+    color: var(--primary);
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
     border-color: var(--white);
 }
 
 .qr-code-section {
     text-align: center;
     padding: 2.5rem;
-    background: var(--primary-light);
+    background: rgba(255, 255, 255, 0.1);
     border-radius: var(--border-radius-lg);
-    border: 1px solid var(--gray-light);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     transition: var(--transition);
 }
 
 .qr-code-section:hover {
     transform: translateY(-3px);
-    box-shadow: var(--shadow);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .qr-code-section h4 {
     margin-bottom: 1.5rem;
-    color: var(--dark);
+    color: var(--white);
     font-weight: 600;
+    font-size: 1.3rem;
 }
 
 .qr-code-section img {
     max-width: 200px;
     border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
     transition: var(--transition);
-    border: 3px solid var(--white);
+    border: 4px solid rgba(255, 255, 255, 0.3);
 }
 
 .qr-code-section img:hover {
     transform: scale(1.08);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
 }
 
 /* Enhanced Footer */
@@ -1656,7 +1692,7 @@ section {
     
     .tef-services-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 2rem;
+        gap: 1.5rem;
     }
 }
 
@@ -1686,6 +1722,11 @@ section {
     
     .service-card {
         height: 650px;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
     }
 }
 
@@ -1762,12 +1803,13 @@ section {
     }
     
     .tef-service-card {
-        padding: 2.5rem 1.5rem;
+        padding: 1.75rem 1.25rem;
+        min-height: 180px;
     }
     
     .tef-services-grid {
         grid-template-columns: 1fr;
-        gap: 1.5rem;
+        gap: 1.25rem;
     }
     
     .navbar-service ul {
@@ -1848,113 +1890,13 @@ section {
         padding: 2rem 1.5rem;
     }
     
-    .contact-form-card, .contact-info-card {
+    .contact-info-card {
         padding: 2rem 1.5rem;
     }
     
     .footer-main {
         padding: 4rem 1rem;
         grid-template-columns: 1fr;
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .advantages-container {
-        flex-direction: column;
-        gap: 3rem;
-    }
-    
-    .advantage-divider {
-        width: 100%;
-        height: 1px;
-        margin: 0;
-    }
-    
-    .tef-pricing-card.popular {
-        transform: none;
-    }
-    
-    .tef-pricing-card.popular:hover {
-        transform: translateY(-5px);
-    }
-}
-
-@media (max-width: 768px) {
-    .navbar-links {
-        display: none;
-    }
-    
-    .hamburger-icon {
-        display: flex;
-    }
-    
-    .hero h1 {
-        font-size: 2.2rem;
-    }
-    
-    .hero h2 {
-        font-size: 1.1rem;
-    }
-    
-    .section-title h2 {
-        font-size: 1.8rem;
-    }
-    
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .card-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .vertical-services-container {
-        flex-direction: column;
-    }
-    
-    .vertical-arrow-container {
-        flex-direction: row;
-        justify-content: center;
-        margin-top: 1rem;
-    }
-    
-    .carousel-arrow.left {
-        left: 10px;
-    }
-    
-    .carousel-arrow.right {
-        right: 10px;
-    }
-}
-
-@media (max-width: 480px) {
-    .container {
-        padding: 0 15px;
-    }
-    
-    .hero {
-        padding: 120px 0 60px;
-    }
-    
-    section {
-        padding: 60px 0;
-    }
-    
-    .tef-services-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .tef-pricing-table {
-        grid-template-columns: 1fr;
-    }
-    
-    .service-card {
-        padding: 1.5rem;
-    }
-    
-    .tef-pricing-card {
-        padding: 2rem;
     }
 }
     </style>
@@ -2053,31 +1995,39 @@ section {
                 Choisissez le service qui correspond le mieux à vos besoins pour une préparation sur mesure.
             </p>
 
-            <!-- TEF-specific services grid -->
+            <!-- TEF-specific services grid - UPDATED WITH BETTER STYLING -->
             <div class="tef-services-grid">
                 <div class="tef-service-card animate-on-scroll">
                     <div class="icon">
                         <i class="fas fa-book-open"></i>
                     </div>
                     <h4>Compréhension Écrite</h4>
+                    <p>Maîtrisez la lecture et l'analyse de textes avec nos exercices progressifs</p>
+                    <a href="courses/comprehension-ecrite/" class="btn">Découvrir</a>
                 </div>
                 <div class="tef-service-card animate-on-scroll">
                     <div class="icon">
                         <i class="fas fa-headphones"></i>
                     </div>
                     <h4>Compréhension Orale</h4>
+                    <p>Perfectionnez votre écoute avec des enregistrements authentiques</p>
+                    <a href="courses/comprehension-orale/" class="btn">Découvrir</a>
                 </div>
                 <div class="tef-service-card animate-on-scroll">
                     <div class="icon">
                         <i class="fas fa-pen-alt"></i>
                     </div>
                     <h4>Expression Écrite</h4>
+                    <p>Apprenez à rédiger efficacement avec nos conseils et corrections</p>
+                    <a href="expression-ecrite/" class="btn">Découvrir</a>
                 </div>
                 <div class="tef-service-card animate-on-scroll">
                     <div class="icon">
                         <i class="fas fa-microphone-alt"></i>
                     </div>
                     <h4>Expression Orale</h4>
+                    <p>Développez votre fluidité et prononciation avec nos exercices</p>
+                    <a href="expression-orale/" class="btn">Découvrir</a>
                 </div>
             </div>
 
@@ -2583,6 +2533,7 @@ section {
         </div>
     </section>
 
+    <!-- ENHANCED CONTACT SECTION WITHOUT FORM -->
     <section id="contact-section" class="contact">
         <div class="container">
             <div class="section-title animate-on-scroll">
@@ -2590,33 +2541,13 @@ section {
                 <hr>
             </div>
             <p class="subtitle animate-on-scroll">
-                Pour toute question ou pour rejoindre nos communautés d'apprentissage, contactez-nous.
+                Nous sommes à votre écoute 7j/7. Choisissez le mode de contact qui vous convient le mieux.
             </p>
+            
             <div class="contact-grid">
-                <div class="contact-form-card animate-on-scroll">
-                    <h3>Envoyez-nous un message</h3>
-                    <form action="email.php" method="post">
-                        <div class="form-group">
-                            <label for="name">Prénom</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Téléphone</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Comment pouvons-nous vous aider ?</label>
-                            <textarea id="message" name="message" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Envoyer</button>
-                    </form>
-                </div>
+                <!-- Left Column: Contact Information -->
                 <div class="contact-info-card animate-on-scroll">
-                    <h3>Nos coordonnées</h3>
+                    <h3>Informations de contact</h3>
                     <div class="contact-details">
                         <div class="contact-detail-item">
                             <i class="fas fa-envelope"></i>
@@ -2634,6 +2565,26 @@ section {
                             <i class="fas fa-clock"></i>
                             <span>Lundi - Vendredi: 9h00 - 18h00</span>
                         </div>
+                        <div class="contact-detail-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Disponible en ligne partout dans le monde</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Channels -->
+                    <div class="contact-channels">
+                        <div class="contact-channel-item">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>WhatsApp</h4>
+                            <p>Réponse rapide en moins de 5 minutes</p>
+                            <a href="https://wa.me/237620174450" class="btn btn-primary" style="margin-top: 1rem;">Message WhatsApp</a>
+                        </div>
+                        <div class="contact-channel-item">
+                            <i class="fas fa-envelope"></i>
+                            <h4>Email</h4>
+                            <p>Réponse sous 24 heures</p>
+                            <a href="mailto:academiclearning86@gmail.com" class="btn btn-primary" style="margin-top: 1rem;">Envoyer un email</a>
+                        </div>
                     </div>
                     
                     <div class="social-links">
@@ -2642,9 +2593,36 @@ section {
                         <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                     </div>
+                </div>
+                
+                <!-- Right Column: Quick Actions & QR Code -->
+                <div class="contact-info-card animate-on-scroll">
+                    <h3>Actions rapides</h3>
+                    
+                    <div class="contact-channels">
+                        <div class="contact-channel-item">
+                            <i class="fas fa-calendar-check"></i>
+                            <h4>Réserver un appel</h4>
+                            <p>Planifiez un appel avec nos conseillers</p>
+                            <a href="https://wa.me/237620174450?text=Bonjour!%20Je%20souhaite%20réserver%20un%20appel%20pour%20en%20savoir%20plus%20sur%20la%20préparation%20TEF." class="btn btn-primary" style="margin-top: 1rem;">Réserver</a>
+                        </div>
+                        <div class="contact-channel-item">
+                            <i class="fas fa-question-circle"></i>
+                            <h4>FAQ Instantanée</h4>
+                            <p>Questions fréquentes sur la préparation TEF</p>
+                            <a href="#" class="btn btn-primary" style="margin-top: 1rem;">Consulter FAQ</a>
+                        </div>
+                        <div class="contact-channel-item">
+                            <i class="fas fa-comments"></i>
+                            <h4>Support en direct</h4>
+                            <p>Chat en direct avec notre équipe</p>
+                            <a href="#" class="btn btn-primary" style="margin-top: 1rem;">Démarrer le chat</a>
+                        </div>
+                    </div>
                     
                     <div class="qr-code-section">
-                        <h4>Rejoignez le groupe OPAL</h4>
+                        <h4>Rejoignez notre communauté WhatsApp</h4>
+                        <p style="margin-bottom: 1rem; color: rgba(255,255,255,0.9);">Scannez le QR code pour rejoindre le groupe OPAL</p>
                         <a href="https://wa.me/237620174450" target="_blank" rel="noopener noreferrer">
                             <img src="opal-qr.jpg" alt="OPAL WhatsApp QR Code">
                         </a>
